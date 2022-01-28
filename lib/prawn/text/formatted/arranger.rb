@@ -140,11 +140,11 @@ module Prawn
             original_stroke_color = @document.stroke_color
             @document.fill_color(*fragment.color)
             @document.stroke_color(*fragment.color)
-            apply_font_settings(fragment, &block)
+            apply_font_settings(fragment, &block) # HACK
             @document.stroke_color = original_stroke_color
             @document.fill_color = original_fill_color
           else
-            apply_font_settings(fragment, &block)
+            apply_font_settings(fragment, &block) # HACK
           end
         end
 
@@ -165,7 +165,12 @@ module Prawn
 
           @document.character_spacing(character_spacing) do
             if font || font_style != :normal
-              raise 'Bad font family' unless @document.font.family
+              puts "@document.font.family: "
+              puts @document.font.family
+              raise 'Bad font family' unless @document.font.family # HACK
+              puts "==============\n\n"
+              # raise BadFontFamily unless @document.font.family
+
               @document.font(
                 font || @document.font.family, style: font_style
               ) do

@@ -158,7 +158,7 @@ module Prawn
     #
     #   pdf.font("MyTrueTypeFamily", :style => :bold)
     #   pdf.text "Some bold text"
-    #   pdf.font("MyTrueTypeFamily")
+    #   pdf.font("MyTrueTypeFamily") # HACK
     #   pdf.text "Some normal text"
     #
     # This assumes that you have appropriate TTF fonts for each style you

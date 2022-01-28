@@ -439,6 +439,8 @@ module Prawn
     #
     def move_up(n)
       self.y += n
+    # def move_up(amount) # HACK
+    #   self.y += amount
     end
 
     # Moves down the document by n points relative to the current position
